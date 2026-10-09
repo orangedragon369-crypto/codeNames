@@ -45,6 +45,22 @@ export default function App() {
     console.log(tileCounting)
     setTilePattern(tileCounting);
   };
+
+  function tileType(type){
+    switch(type){
+      case 'black':
+        return(<span className='black'>Assassin</span>);
+      case 'blue':
+        return(<span className='blue'>Blue Team</span>);
+      case 'red':
+        return(<span className='red'>Red Team</span>);
+      case '#e9c28e':
+        return'Civilian';
+      default:
+        return(<span className='blue'>Flip Case</span>)
+    }
+  }
+
   return (<div>
     <h3>Code Names</h3>
     <label htmlFor='tTile'> Tiles per team: </label>
@@ -75,7 +91,7 @@ Split the group in two teams (or 3 if only 3). Each team will choose a member to
       {tilePattern.map((tile, index1)=>{
       return(<div key={index1} className="row">
         {tile.map((tile, index2)=>{
-          return(<div key={`${index1}${index2}`} className="tile" style={{backgroundColor: tile}}></div>);
+          return(<div key={`${index1}${index2}`} className="tile" style={{backgroundColor: tile}}>{tileType(tile)}</div>);
         })}
       </div>)
       })}
