@@ -16,7 +16,7 @@ export default function App() {
   Blue = Blue Team
   Red = Red Team
   Tan = civilian
-  Purple = Exta tile for the team that goes first and second respectivly
+  Purple = Exta tile for the team that goes first (case 1) and second (case 2)
 
 Set-Up:  
 
@@ -24,7 +24,7 @@ Set out a 5 by 5 grid of different cards, (nouns, items, cards against humanity 
       
 Instructions (4+ people ideal, 3 required):
 
-Split the group in two teams (or 3 if only 3). Each team will choose a member to be their operator (one of the 3 people will be both operators if only 3). Only the operator should see the tiles on this screen when in play. The operator will give a one word hint that is not on the board in any way, hyphenated word count as just one, and the number of tiles connected to the hint, ie: water for 3 and the team would look for three tiles that are connected to the hint, the others on their team will then try and guess what 3 tiles are being refferenced.`
+Split the group in the number of teamswanted (or 3 if only 3). Each team will choose a member to be their operator (one of the 3 people will be both operators if only 3). Only the operator should see the tiles on this screen when in play. The operator will give a one word hint that is not on the board in any way, hyphenated word count as just one, and the number of tiles connected to the hint, ie: water for 3 and the team would look for three tiles that are connected to the hint, the others on their team will then try and guess what 3 tiles are being refferenced.`
   let tiles = [1,1,1,1]
   let flipCaseCount =1;
   
@@ -117,9 +117,9 @@ Split the group in two teams (or 3 if only 3). Each team will choose a member to
       <button onClick={()=> alert(instructions)}>Rules/Instruction</button>
     </div>
     <div>
-      {tilePattern.map((tile, index1)=>{
+      {tilePattern.map((tile, index1)=>{//loops through the first layer adding rows as it goes
       return(<div key={index1} className="row">
-        {tile.map((tile, index2)=>{
+        {tile.map((tile, index2)=>{//loops through second layer adding row contents and a check box for tracking the board better
           return(<div key={`${index1}${index2}`} className="tile" style={{backgroundColor: tile}}>{tileType(tile)}<input type='checkbox'></input></div>);
         })}
       </div>)
